@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - Analytics</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styless.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+</head>
+<body>
+  <div class="dashboard">
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+    
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <div class="logo">
+          <div class="logo-icon">L</div>
+          <span class="logo-text">LOGO</span>
+        </div>
+        <button class="close-sidebar-btn" id="closeSidebarBtn">
+          <i data-lucide="x"></i>
+        </button>
+      </div>
+      
+      <nav class="sidebar-nav">
+        <ul>
+          <li><a href="index.html"><i data-lucide="home"></i><span>Home</span></a></li>
+          <li><a href="finance.html"><i data-lucide="dollar-sign"></i><span>Finance</span></a></li>
+          <li><a href="statistics.html"><i data-lucide="bar-chart-2"></i><span>Statistics</span></a></li>
+          <li><a href="analytics.html" id="nav-analytics"><i data-lucide="pie-chart"></i><span>Analytics</span></a></li>
+          <li><a href="trends.html"><i data-lucide="trending-up"></i><span>Trends</span></a></li>
+          <li><a href="layers.html"><i data-lucide="layers"></i><span>Layers</span></a></li>
+          <li><a href="settings.html"><i data-lucide="settings"></i><span>Settings</span></a></li>
+        </ul>
+      </nav>
+      
+      <div class="sidebar-footer animate-item">
+        <div class="progress-circle-container">
+          <svg class="progress-circle" width="120" height="120" viewBox="0 0 120 120">
+            <circle class="progress-background" cx="60" cy="60" r="54" stroke-width="12"></circle>
+            <circle class="progress-bar" cx="60" cy="60" r="54" stroke-width="12" stroke-dasharray="339.292" stroke-dashoffset="339.292"></circle>
+          </svg>
+          <div class="progress-text">
+            <span class="percentage">78%</span>
+            <span class="label">CONVERSION</span>
+          </div>
+        </div>
+        <div class="footer-text">ANALYTICS OVERVIEW</div>
+      </div>
+    </aside>
+    
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Header -->
+      <header class="header">
+        <div class="header-left">
+          <button class="menu-button" id="menuButton"><i data-lucide="menu"></i></button>
+          <span class="header-text">Analytics Dashboard</span>
+        </div>
+        
+        <div class="header-right">
+          <button class="button button-primary">Export</button>
+          <button class="button button-outline">Filter <i data-lucide="chevron-down"></i></button>
+          <button class="icon-button"><i data-lucide="bell"></i></button>
+          <div class="user-profile">
+            <div class="avatar">
+              <i data-lucide="user"></i>
+            </div>
+            <span class="user-name">User Name</span>
+          </div>
+        </div>
+      </header>
+      
+      <!-- Dashboard Content -->
+      <div class="dashboard-content">
+       
+        
+        <!-- Analytics Content -->
+        <div class="grid">
+          <!-- Top Row - KPI Cards -->
+          <div class="grid-col">
+            <div class="card animate-on-scroll">
+              <div class="kpi-card">
+                <div class="kpi-icon blue-bg">
+                  <i data-lucide="users"></i>
+                </div>
+                <div class="kpi-content">
+                  <div class="kpi-value">24,892</div>
+                  <div class="kpi-label">Total Users</div>
+                  <div class="kpi-change positive">+12.5%</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="grid-col">
+            <div class="card animate-on-scroll">
+              <div class="kpi-card">
+                <div class="kpi-icon pink-bg">
+                  <i data-lucide="eye"></i>
+                </div>
+                <div class="kpi-content">
+                  <div class="kpi-value">78,623</div>
+                  <div class="kpi-label">Page Views</div>
+                  <div class="kpi-change positive">+8.2%</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="grid-col">
+            <div class="card animate-on-scroll">
+              <div class="kpi-card">
+                <div class="kpi-icon purple-bg">
+                  <i data-lucide="shopping-cart"></i>
+                </div>
+                <div class="kpi-content">
+                  <div class="kpi-value">3,457</div>
+                  <div class="kpi-label">Conversions</div>
+                  <div class="kpi-change positive">+5.3%</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Middle Row - Main Charts -->
+          <div class="grid-col span-2">
+            <div class="card animate-on-scroll">
+              <div class="chart-header">
+                <span class="chart-title">USER ENGAGEMENT</span>
+                <div class="chart-legend">
+                  <div class="legend-item">
+                    <div class="legend-color" style="background-color: var(--chart-pink);"></div>
+                    <span>New Users</span>
+                  </div>
+                  <div class="legend-item">
+                    <div class="legend-color" style="background-color: var(--chart-blue);"></div>
+                    <span>Returning Users</span>
+                  </div>
+                </div>
+              </div>
+              <div class="chart-container" style="height: 250px;">
+                <canvas id="engagementChart"></canvas>
+              </div>
+            </div>
+          </div>
+          
+          <div class="grid-col">
+            <div class="card animate-on-scroll">
+              <div class="chart-header">
+                <span class="chart-title">TRAFFIC SOURCES</span>
+              </div>
+              <div class="chart-container">
+                <canvas id="trafficSourcesChart"></canvas>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Bottom Row -->
+          <div class="grid-col span-2">
+            <div class="card animate-on-scroll">
+              <div class="chart-header">
+                <span class="chart-title">CONVERSION FUNNEL</span>
+              </div>
+              <div class="funnel-container">
+                <div class="funnel-step">
+                  <div class="funnel-bar" style="width: 100%; background-color: var(--chart-blue);">
+                    <span class="funnel-label">Visitors</span>
+                    <span class="funnel-value">24,892</span>
+                  </div>
+                </div>
+                <div class="funnel-step">
+                  <div class="funnel-bar" style="width: 75%; background-color: var(--chart-purple);">
+                    <span class="funnel-label">Product Views</span>
+                    <span class="funnel-value">18,669</span>
+                  </div>
+                </div>
+                <div class="funnel-step">
+                  <div class="funnel-bar" style="width: 45%; background-color: var(--chart-pink);">
+                    <span class="funnel-label">Add to Cart</span>
+                    <span class="funnel-value">11,201</span>
+                  </div>
+                </div>
+                <div class="funnel-step">
+                  <div class="funnel-bar" style="width: 30%; background-color: #10b981;">
+                    <span class="funnel-label">Checkout</span>
+                    <span class="funnel-value">6,223</span>
+                  </div>
+                </div>
+                <div class="funnel-step">
+                  <div class="funnel-bar" style="width: 25%; background-color: #f59e0b;">
+                    <span class="funnel-label">Purchase</span>
+                    <span class="funnel-value"> 3,457</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="grid-col">
+            <div class="card animate-on-scroll">
+              <div class="chart-header">
+                <span class="chart-title">DEVICE BREAKDOWN</span>
+              </div>
+              <div class="chart-container">
+                <canvas id="deviceChart"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  
+  <script src="script.js"></script>
+  <script>
+    // Initialize Lucide icons
+    document.addEventListener('DOMContentLoaded', function() {
+      lucide.createIcons();
+      
+      // Highlight current page in navigation
+      document.getElementById('nav-analytics').classList.add('active');
+      
+      // Initialize analytics-specific charts
+      initAnalyticsCharts();
+    });
+    
+    function initAnalyticsCharts() {
+      // User Engagement Chart
+      const engagementCtx = document.getElementById('engagementChart').getContext('2d');
+      const days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+      const newUserData = [1250, 1420, 1350, 1650, 1850, 1400, 1200];
+      const returningUserData = [2200, 2100, 2300, 2400, 2800, 2100, 1900];
+      
+      new Chart(engagementCtx, {
+        type: 'line',
+        data: {
+          labels: days,
+          datasets: [
+            {
+              label: 'New Users',
+              data: newUserData,
+              borderColor: '#f43f5e',
+              backgroundColor: 'rgba(244, 63, 94, 0.1)',
+              tension: 0.4,
+              fill: true
+            },
+            {
+              label: 'Returning Users',
+              data: returningUserData,
+              borderColor: '#3b82f6',
+              backgroundColor: 'rgba(59, 130, 246, 0.1)',
+              tension: 0.4,
+              fill: true
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          scales: {
+            y: {
+              beginAtZero: true,
+              grid: {
+                color: 'rgba(255, 255, 255, 0.05)'
+              }
+            },
+            x: {
+              grid: {
+                display: false
+              }
+            }
+          }
+        }
+      });
+      
+      // Traffic Sources Chart
+      const trafficCtx = document.getElementById('trafficSourcesChart').getContext('2d');
+      
+      new Chart(trafficCtx, {
+        type: 'doughnut',
+        data: {
+          labels: ['Organic Search', 'Direct', 'Social', 'Referral', 'Email'],
+          datasets: [{
+            data: [35, 25, 20, 15, 5],
+            backgroundColor: [
+              '#3b82f6',
+              '#f43f5e',
+              '#a855f7',
+              '#10b981',
+              '#f59e0b'
+            ],
+            borderWidth: 0
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              position: 'bottom',
+              labels: {
+                padding: 15,
+                boxWidth: 10
+              }
+            }
+          }
+        }
+      });
+      
+      // Device Breakdown Chart
+      const deviceCtx = document.getElementById('deviceChart').getContext('2d');
+      
+      new Chart(deviceCtx, {
+        type: 'pie',
+        data: {
+          labels: ['Mobile', 'Desktop', 'Tablet'],
+          datasets: [{
+            data: [58, 32, 10],
+            backgroundColor: [
+              '#3b82f6',
+              '#f43f5e',
+              '#a855f7'
+            ],
+            borderWidth: 0
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              position: 'bottom',
+              labels: {
+                padding: 15,
+                boxWidth: 10
+              }
+            }
+          }
+        }
+      });
+    }
+  </script>
+   <script src="script.js"></script>
+   <!-- Add the mobile responsive JS -->
+   <script src="mobile-responsive.js"></script>
+   <script>
+     // Initialize Lucide icons
+     document.addEventListener('DOMContentLoaded', function() {
+       lucide.createIcons();
+       
+       // Highlight current page in navigation
+       document.getElementById('nav-finance').classList.add('active');
+       
+       // Initialize finance-specific charts
+       initFinanceCharts();
+     });
+     
+     // Finance charts initialization remains the same
+   </script>
+</body>
+</html>

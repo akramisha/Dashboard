@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - PAGE_TITLE</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+</head>
+<body>
+  <div class="dashboard">
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+    
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <div class="logo">
+          <div class="logo-icon">L</div>
+          <span class="logo-text">LOGO</span>
+        </div>
+        <button class="close-sidebar-btn" id="closeSidebarBtn">
+          <i data-lucide="x"></i>
+        </button>
+      </div>
+      
+      <nav class="sidebar-nav">
+        <ul>
+          <li><a href="index.html" id="nav-home"><i data-lucide="home"></i><span>Home</span></a></li>
+          <li><a href="finance.html" id="nav-finance"><i data-lucide="dollar-sign"></i><span>Finance</span></a></li>
+          <li><a href="statistics.html" id="nav-statistics"><i data-lucide="bar-chart-2"></i><span>Statistics</span></a></li>
+          <li><a href="analytics.html" id="nav-analytics"><i data-lucide="pie-chart"></i><span>Analytics</span></a></li>
+          <li><a href="trends.html" id="nav-trends"><i data-lucide="trending-up"></i><span>Trends</span></a></li>
+          <li><a href="layers.html" id="nav-layers"><i data-lucide="layers"></i><span>Layers</span></a></li>
+          <li><a href="settings.html" id="nav-settings"><i data-lucide="settings"></i><span>Settings</span></a></li>
+        </ul>
+      </nav>
+      
+      <div class="sidebar-footer animate-item">
+        <div class="progress-circle-container">
+          <svg class="progress-circle" width="120" height="120" viewBox="0 0 120 120">
+            <circle class="progress-background" cx="60" cy="60" r="54" stroke-width="12"></circle>
+            <circle class="progress-bar" cx="60" cy="60" r="54" stroke-width="12" stroke-dasharray="339.292" stroke-dashoffset="339.292"></circle>
+          </svg>
+          <div class="progress-text">
+            <span class="percentage">67%</span>
+            <span class="label">COMPLETION</span>
+          </div>
+        </div>
+        <div class="footer-text">DASHBOARD OVERVIEW</div>
+      </div>
+    </aside>
+    
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Header -->
+      <header class="header">
+        <div class="header-left">
+          <button class="menu-button" id="menuButton"><i data-lucide="menu"></i></button>
+          <span class="header-text">PAGE_TITLE Dashboard</span>
+        </div>
+        
+        <div class="header-right">
+          <button class="button button-primary">Export</button>
+          <button class="button button-outline">Filter <i data-lucide="chevron-down"></i></button>
+          <button class="icon-button"><i data-lucide="bell"></i></button>
+          <div class="user-profile">
+            <div class="avatar">
+              <i data-lucide="user"></i>
+            </div>
+            <span class="user-name">User Name</span>
+          </div>
+        </div>
+      </header>
+      
+      <!-- Dashboard Content -->
+      <div class="dashboard-content">
+        
+          
+          
+        
+          <div class="grid">
+            <!-- Top Row -->
+            <div class="grid-col span-2">
+              <!-- Progress Bars -->
+              <div class="card animate-on-scroll">
+                <div class="progress-container">
+                  <div class="progress-header">
+                    <span class="progress-label">Sales Progress</span>
+                    <span class="progress-value">$4,550</span>
+                  </div>
+                  <div class="progress-bar-container">
+                    <div class="progress-bar-bg"></div>
+                    <div class="progress-bar-fill" style="--bar-color: #f43f5e; --bar-width: 75%"></div>
+                  </div>
+                </div>
+                
+                <div class="progress-container">
+                  <div class="progress-header">
+                    <span class="progress-label">Revenue Progress</span>
+                    <span class="progress-value">$3,750</span>
+                  </div>
+                  <div class="progress-bar-container">
+                    <div class="progress-bar-bg"></div>
+                    <div class="progress-bar-fill" style="--bar-color: #3b82f6; --bar-width: 60%"></div>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Area Chart -->
+              <div class="card animate-on-scroll">
+                <div class="chart-header">
+                  <span class="chart-title">ACTIVITY</span>
+                  <div class="chart-legend">
+                    <div class="legend-item">
+                      <div class="legend-color" style="background-color: var(--chart-pink);"></div>
+                      <span>Series 1</span>
+                    </div>
+                    <div class="legend-item">
+                      <div class="legend-color" style="background-color: var(--chart-blue);"></div>
+                      <span>Series 2</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="chart-container">
+                  <canvas id="areaChart"></canvas>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Circular Progress -->
+            <div class="grid-col">
+              <div class="grid-inner">
+                <!-- Numbered Cards -->
+                <div class="grid-inner-row">
+                  <div class="card small pink-bg animate-on-scroll">
+                    <div class="card-number">01</div>
+                    <div class="card-text">Total Sales</div>
+                  </div>
+                  <div class="card small blue-bg animate-on-scroll">
+                    <div class="card-number">02</div>
+                    <div class="card-text">Total Revenue</div>
+                  </div>
+                  <div class="card small purple-bg animate-on-scroll">
+                    <div class="card-number">03</div>
+                    <div class="card-text">Profit Margin</div>
+                  </div>
+                </div>
+                
+                <!-- Circular Progress Cards -->
+                <div class="grid-inner-row">
+                  <div class="card small animate-on-scroll">
+                    <div class="progress-circle-small-container">
+                      <svg class="progress-circle-small" width="60" height="60" viewBox="0 0 60 60">
+                        <circle class="progress-background" cx="30" cy="30" r="25" stroke-width="6"></circle>
+                        <circle class="progress-bar pink-stroke" cx="30" cy="30" r="25" stroke-width="6" stroke-dasharray="157.08" stroke-dashoffset="157.08"></circle>
+                      </svg>
+                      <div class="progress-text-small">25%</div>
+                    </div>
+                  </div>
+                  <div class="card small animate-on-scroll">
+                    <div class="progress-circle-small-container">
+                      <svg class="progress-circle-small" width="60" height="60" viewBox="0 0 60 60">
+                        <circle class="progress-background" cx="30" cy="30" r="25" stroke-width="6"></circle>
+                        <circle class="progress-bar blue-stroke" cx="30" cy="30" r="25" stroke-width="6" stroke-dasharray="157.08" stroke-dashoffset="157.08"></circle>
+                      </svg>
+                      <div class="progress-text-small">64%</div>
+                    </div>
+                  </div>
+                  <div class="card small animate-on-scroll">
+                    <div class="progress-circle-small-container">
+                      <svg class="progress-circle-small" width="60" height="60" viewBox="0 0 60 60">
+                        <circle class="progress-background" cx="30" cy="30" r="25" stroke-width="6"></circle>
+                        <circle class="progress-bar purple-stroke" cx="30" cy="30" r="25" stroke-width="6" stroke-dasharray="157.08" stroke-dashoffset="157.08"></circle>
+                      </svg>
+                      <div class="progress-text-small">36%</div>
+                    </div>
+                  </div>
+                </div>
+                
+                <!-- Stat Cards -->
+                <div class="grid-inner-row">
+                  <div class="card small blue-bg animate-on-scroll">
+                    <div class="stat-card">
+                      <div class="stat-value">3,058</div>
+                      <div class="stat-label">Total Orders</div>
+                    </div>
+                  </div>
+                  <div class="card small pink-bg animate-on-scroll">
+                    <div class="stat-card">
+                      <div class="stat-value">25%</div>
+                      <div class="stat-label">Conversion Rate</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Middle Row -->
+            <div class="grid-col span-2">
+              <div class="grid-inner">
+                <div class="grid-inner-row">
+                  <!-- Bar Charts -->
+                  <div class="card animate-on-scroll">
+                    <div class="chart-header">
+                      <span class="chart-title">27%</span>
+                      <span class="chart-subtitle">Monthly Sales Growth</span>
+                    </div>
+                    <div class="chart-container">
+                      <canvas id="barChart1"></canvas>
+                    </div>
+                  </div>
+                  
+                  <div class="card animate-on-scroll">
+                    <div class="chart-header">
+                      <span class="chart-title">43%</span>
+                      <span class="chart-subtitle">Customer Retention Rate</span>
+                    </div>
+                    <div class="chart-container">
+                      <canvas id="barChart2"></canvas>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Stats Cards -->
+            <div class="grid-col">
+              <div class="card animate-on-scroll">
+                <div class="stat-list">
+                  <div class="stat-item">
+                    <div class="stat-item-content">
+                      <div class="stat-item-label">Total Revenue</div>
+                      <div class="stat-item-value">3,457</div>
+                    </div>
+                    <div class="stat-item-indicator blue"></div>
+                  </div>
+                  <div class="stat-item">
+                    <div class="stat-item-content">
+                      <div class="stat-item-label">Total Sales</div>
+                      <div class="stat-item-value">2,305</div>
+                    </div>
+                    <div class="stat-item-indicator pink"></div>
+                  </div>
+                  <div class="stat-item">
+                    <div class="stat-item-content">
+                      <div class="stat-item-label">Profit Margin</div>
+                      <div class="stat-item-value">2,890</div>
+                    </div>
+                    <div class="stat-item-indicator purple"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Bottom Row -->
+            <div class="grid-col span-3">
+              <div class="grid-inner">
+                <div class="grid-inner-row">
+                  <!-- Bottom Charts -->
+                  <div class="card animate-on-scroll">
+                    <div class="chart-header">
+                      <span class="chart-title">Total Revenue Growth</span>
+                    </div>
+                    <div class="chart-container">
+                      <canvas id="verticalBarChart"></canvas>
+                    </div>
+                  </div>
+                  
+                  <div class="card animate-on-scroll">
+                    <div class="chart-header">
+                      <span class="chart-title">Monthly Sales Trend</span>
+                    </div>
+                    <div class="chart-container">
+                      <canvas id="lineChart"></canvas>
+                    </div>
+                  </div>
+                  
+                  <div class="card animate-on-scroll">
+                    <div class="chart-header">
+                      <span class="chart-title">Performance Overview</span>
+                    </div>
+                    <div class="progress-circles-container">
+                      <div class="progress-circle-item">
+                        <div class="progress-circle-small-container">
+                          <svg class="progress-circle-small" width="80" height="80" viewBox="0 0 80 80">
+                            <circle class="progress-background" cx="40" cy="40" r="34" stroke-width="8"></circle>
+                            <circle class="progress-bar pink-stroke" cx="40" cy="40" r="34" stroke-width="8" stroke-dasharray="213.628" stroke-dashoffset="213.628"></circle>
+                          </svg>
+                          <div class="progress-text-small">75%</div>
+                        </div>
+                        <div class="progress-label">Total Sales</div>
+                      </div>
+                      <div class="progress-circle-item">
+                        <div class="progress-circle-small-container">
+                          <svg class="progress-circle-small" width="80" height="80" viewBox="0 0 80 80">
+                            <circle class="progress-background" cx="40" cy="40" r="34" stroke-width="8"></circle>
+                            <circle class="progress-bar blue-stroke" cx="40" cy="40" r="34" stroke-width="8" stroke-dasharray="213.628" stroke-dashoffset="213.628"></circle>
+                          </svg>
+                          <div class="progress-text-small">45%</div>
+                        </div>
+                        <div class="progress-label">Revenue Growth</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+    <script>
+        // Initialize Lucide icons
+        document.addEventListener('DOMContentLoaded', function() {
+          lucide.createIcons();
+        });
+      </script>
+    <script src="script.js"></script>
+
+    <script src="script.js"></script>
+    <script>
+      // Initialize Lucide icons
+      document.addEventListener('DOMContentLoaded', function() {
+        lucide.createIcons();
+        
+        // Highlight current page in navigation
+        document.getElementById('nav-finance').classList.add('active');
+        
+        // Initialize finance-specific charts
+        initFinanceCharts();
+      });
+      
+    </script>
+  </body>
+  </html>

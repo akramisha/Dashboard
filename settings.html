@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - Settings</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styless.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+</head>
+<body>
+  <div class="dashboard">
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+    
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <div class="logo">
+          <div class="logo-icon">L</div>
+          <span class="logo-text">LOGO</span>
+        </div>
+        <button class="close-sidebar-btn" id="closeSidebarBtn">
+          <i data-lucide="x"></i>
+        </button>
+      </div>
+      
+      <nav class="sidebar-nav">
+        <ul>
+          <li><a href="index.html"><i data-lucide="home"></i><span>Home</span></a></li>
+          <li><a href="finance.html"><i data-lucide="dollar-sign"></i><span>Finance</span></a></li>
+          <li><a href="statistics.html"><i data-lucide="bar-chart-2"></i><span>Statistics</span></a></li>
+          <li><a href="analytics.html"><i data-lucide="pie-chart"></i><span>Analytics</span></a></li>
+          <li><a href="trends.html"><i data-lucide="trending-up"></i><span>Trends</span></a></li>
+          <li><a href="layers.html"><i data-lucide="layers"></i><span>Layers</span></a></li>
+          <li><a href="settings.html" id="nav-settings"><i data-lucide="settings"></i><span>Settings</span></a></li>
+        </ul>
+      </nav>
+      
+      <div class="sidebar-footer animate-item">
+        <div class="progress-circle-container">
+          <svg class="progress-circle" width="120" height="120" viewBox="0 0 120 120">
+            <circle class="progress-background" cx="60" cy="60" r="54" stroke-width="12"></circle>
+            <circle class="progress-bar" cx="60" cy="60" r="54" stroke-width="12" stroke-dasharray="339.292" stroke-dashoffset="339.292"></circle>
+          </svg>
+          <div class="progress-text">
+            <span class="percentage">100%</span>
+            <span class="label">PROFILE</span>
+          </div>
+        </div>
+        <div class="footer-text">ACCOUNT SETTINGS</div>
+      </div>
+    </aside>
+    
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Header -->
+      <header class="header">
+        <div class="header-left">
+          <button class="menu-button" id="menuButton"><i data-lucide="menu"></i></button>
+          <span class="header-text">Settings Dashboard</span>
+        </div>
+        
+        <div class="header-right">
+          <button class="button button-primary">Save Changes</button>
+          <button class="button button-outline">Reset <i data-lucide="refresh-cw"></i></button>
+          <button class="icon-button"><i data-lucide="bell"></i></button>
+          <div class="user-profile">
+            <div class="avatar">
+              <i data-lucide="user"></i>
+            </div>
+            <span class="user-name">User Name</span>
+          </div>
+        </div>
+      </header>
+      
+      <!-- Dashboard Content -->
+      <div class="dashboard-content">
+        
+        
+        
+        <!-- Settings Content -->
+        <div class="grid">
+          <!-- Left Column - Settings Navigation -->
+          <div class="grid-col">
+            <div class="card animate-on-scroll">
+              <div class="settings-nav">
+                <div class="settings-nav-item active">
+                  <i data-lucide="user"></i>
+                  <span>Profile</span>
+                </div>
+                <div class="settings-nav-item">
+                  <i data-lucide="shield"></i>
+                  <span>Security</span>
+                </div>
+                <div class="settings-nav-item">
+                  <i data-lucide="bell"></i>
+                  <span>Notifications</span>
+                </div>
+                <div class="settings-nav-item">
+                  <i data-lucide="layout"></i>
+                  <span>Appearance</span>
+                </div>
+                <div class="settings-nav-item">
+                  <i data-lucide="credit-card"></i>
+                  <span>Billing</span>
+                </div>
+                <div class="settings-nav-item">
+                  <i data-lucide="users"></i>
+                  <span>Team</span>
+                </div>
+                <div class="settings-nav-item">
+                  <i data-lucide="key"></i>
+                  <span>API</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Right Column - Settings Content -->
+          <div class="grid-col span-2">
+            <div class="card animate-on-scroll">
+              <div class="settings-header">
+                <h2>Profile Settings</h2>
+                <p>Manage your account information and preferences</p>
+              </div>
+              
+              <div class="settings-form">
+                <div class="settings-section">
+                  <h3>Personal Information</h3>
+                  
+                  <div class="form-group">
+                    <div class="form-row">
+                      <div class="form-field">
+                        <label for="firstName">First Name</label>
+                        <input type="text" id="firstName" value="John" class="form-input" />
+                      </div>
+                      <div class="form-field">
+                        <label for="lastName">Last Name</label>
+                        <input type="text" id="lastName" value="Doe" class="form-input" />
+                      </div>
+                    </div>
+                    
+                    <div class="form-row">
+                      <div class="form-field">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" value="john.doe@example.com" class="form-input" />
+                      </div>
+                      <div class="form-field">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" value="+1 (555) 123-4567" class="form-input" />
+                      </div>
+                    </div>
+                    
+                    <div class="form-row">
+                      <div class="form-field full-width">
+                        <label for="bio">Bio</label>
+                        <textarea id="bio" class="form-textarea" rows="3">Product Manager with 5+ years of experience in SaaS products.</textarea>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="settings-section">
+                  <h3>Preferences</h3>
+                  
+                  <div class="form-group">
+                    <div class="form-row">
+                      <div class="form-field">
+                        <label for="language">Language</label>
+                        <select id="language" class="form-select">
+                          <option value="en">English</option>
+                          <option value="es">Spanish</option>
+                          <option value="fr">French</option>
+                          <option value="de">German</option>
+                        </select>
+                      </div>
+                      <div class="form-field">
+                        <label for="timezone">Timezone</label>
+                        <select id="timezone" class="form-select">
+                          <option value="utc-8">Pacific Time (UTC-8)</option>
+                          <option value="utc-5">Eastern Time (UTC-5)</option>
+                          <option value="utc+0">UTC</option>
+                          <option value="utc+1">Central European Time (UTC+1)</option>
+                        </select>
+                      </div>
+                    </div>
+                    
+                    <div class="form-row">
+                      <div class="form-field full-width">
+                        <label class="checkbox-label">
+                          <input type="checkbox" checked class="form-checkbox" />
+                          <span>Enable two-factor authentication</span>
+                        </label>
+                      </div>
+                    </div>
+                    
+                    <div class="form-row">
+                      <div class="form-field full-width">
+                        <label class="checkbox-label">
+                          <input type="checkbox" checked class="form-checkbox" />
+                          <span>Receive email notifications</span>
+                        </label>
+                      </div>
+                    </div>
+                    
+                    <div class="form-row">
+                      <div class="form-field full-width">
+                        <label class="checkbox-label">
+                          <input type="checkbox" class="form-checkbox" />
+                          <span>Receive SMS notifications</span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="settings-section">
+                  <h3>Theme Settings</h3>
+                  
+                  <div class="form-group">
+                    <div class="form-row">
+                      <div class="form-field full-width">
+                        <label>Theme Mode</label>
+                        <div class="theme-options">
+                          <div class="theme-option">
+                            <input type="radio" name="theme" id="theme-light" value="light" />
+                            <label for="theme-light" class="theme-label">
+                              <div class="theme-preview light-preview"></div>
+                              <span>Light</span>
+                            </label>
+                          </div>
+                          
+                          <div class="theme-option">
+                            <input type="radio" name="theme" id="theme-dark" value="dark" checked />
+                            <label for="theme-dark" class="theme-label">
+                              <div class="theme-preview dark-preview"></div>
+                              <span>Dark</span>
+                            </label>
+                          </div>
+                          
+                          <div class="theme-option">
+                            <input type="radio" name="theme" id="theme-system" value="system" />
+                            <label for="theme-system" class="theme-label">
+                              <div class="theme-preview system-preview"></div>
+                              <span>System</span>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="form-actions">
+                  <button class="button button-primary">Save Changes</button>
+                  <button class="button button-outline">Cancel</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  
+  <script src="script.js"></script>
+  <script>
+    // Initialize Lucide icons
+    document.addEventListener('DOMContentLoaded', function() {
+      lucide.createIcons();
+      
+      // Highlight current page in navigation
+      document.getElementById('nav-settings').classList.add('active');
+      
+      // Settings page specific functionality
+      initSettingsPage();
+    });
+    
+    function initSettingsPage() {
+      // Theme option selection
+      const themeOptions = document.querySelectorAll('input[name="theme"]');
+      themeOptions.forEach(option => {
+        option.addEventListener('change', function() {
+          if (this.checked) {
+            const newTheme = this.value;
+            if (newTheme === 'system') {
+              const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+              document.documentElement.setAttribute('data-theme', prefersDark ? 'dark' : 'light');
+            } else {
+              document.documentElement.setAttribute('data-theme', newTheme);
+            }
+            localStorage.setItem('dashboard-theme', newTheme);
+          }
+        });
+      });
+      
+      // Settings navigation
+      const navItems = document.querySelectorAll('.settings-nav-item');
+      navItems.forEach(item => {
+        item.addEventListener('click', function() {
+          navItems.forEach(i => i.classList.remove('active'));
+          this.classList.add('active');
+          // In a real app, this would load the corresponding settings section
+        });
+      });
+    }
+  </script>
+   <script src="script.js"></script>
+   <!-- Add the mobile responsive JS -->
+   <script src="mobile-responsive.js"></script>
+   <script>
+     // Initialize Lucide icons
+     document.addEventListener('DOMContentLoaded', function() {
+       lucide.createIcons();
+       
+       // Highlight current page in navigation
+       document.getElementById('nav-finance').classList.add('active');
+       
+       // Initialize finance-specific charts
+       initFinanceCharts();
+     });
+     
+     // Finance charts initialization remains the same
+   </script>
+</body>
+</html>

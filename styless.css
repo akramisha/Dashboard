@@ -1,0 +1,859 @@
+/* Add these new styles to support the additional pages */
+
+/* Active navigation item */
+.sidebar-nav a.active,
+.sidebar-nav a#nav-finance.active,
+.sidebar-nav a#nav-statistics.active,
+.sidebar-nav a#nav-analytics.active,
+.sidebar-nav a#nav-trends.active,
+.sidebar-nav a#nav-layers.active,
+.sidebar-nav a#nav-settings.active {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+/* KPI Cards */
+.kpi-card {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.kpi-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.kpi-content {
+  flex: 1;
+}
+
+.kpi-value {
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--text-primary);
+  margin-bottom: 5px;
+}
+
+.kpi-label {
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin-bottom: 5px;
+}
+
+.kpi-change {
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.kpi-change.positive {
+  color: #10b981;
+}
+
+.kpi-change.negative {
+  color: #ef4444;
+}
+
+/* Stats Cards */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.stats-card {
+  text-align: center;
+  padding: 15px;
+  border-radius: 8px;
+  background-color: var(--card-bg-secondary);
+}
+
+.stats-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 10px;
+  color: white;
+}
+
+.stats-value {
+  font-size: 20px;
+  font-weight: bold;
+  color: var(--text-primary);
+  margin-bottom: 5px;
+}
+
+.stats-label {
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin-bottom: 5px;
+}
+
+.stats-change {
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.stats-change.positive {
+  color: #10b981;
+}
+
+.stats-change.negative {
+  color: #ef4444;
+}
+
+/* Transactions List */
+.transactions-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.transaction-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 10px;
+  border-radius: 8px;
+  background-color: var(--card-bg-secondary);
+}
+
+.transaction-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.transaction-details {
+  flex: 1;
+}
+
+.transaction-title {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-primary);
+  margin-bottom: 5px;
+}
+
+.transaction-date {
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+.transaction-amount {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.transaction-amount.income {
+  color: #10b981;
+}
+
+.transaction-amount.expense {
+  color: #ef4444;
+}
+
+/* Funnel */
+.funnel-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.funnel-step {
+  width: 100%;
+}
+
+.funnel-bar {
+  height: 40px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 15px;
+  color: white;
+  font-weight: 500;
+  transition: width 0.5s ease;
+}
+
+.funnel-label {
+  font-size: 14px;
+}
+
+.funnel-value {
+  font-size: 14px;
+}
+
+/* Trend Indicators */
+.trend-indicators {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.trend-indicator {
+  width: 100%;
+}
+
+.trend-indicator-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.trend-indicator-title {
+  font-size: 14px;
+  color: var(--text-primary);
+}
+
+.trend-indicator-value {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.trend-indicator-value.positive {
+  color: #10b981;
+}
+
+.trend-indicator-value.negative {
+  color: #ef4444;
+}
+
+.trend-indicator-bar {
+  height: 8px;
+  width: 100%;
+  background-color: var(--card-bg-secondary);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.trend-indicator-fill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.5s ease;
+}
+
+/* Layer Interactions */
+.layer-interactions {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.layer-interaction-item {
+  width: 100%;
+}
+
+.layer-interaction-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.layer-interaction-title {
+  font-size: 14px;
+  color: var(--text-primary);
+}
+
+.layer-interaction-value {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.layer-interaction-bar {
+  height: 8px;
+  width: 100%;
+  background-color: var(--card-bg-secondary);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.layer-interaction-fill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.5s ease;
+}
+
+/* Layer Metrics */
+.layer-metrics {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.layer-metric {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 10px;
+  border-radius: 8px;
+  background-color: var(--card-bg-secondary);
+}
+
+.layer-metric-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.layer-metric-content {
+  flex: 1;
+}
+
+.layer-metric-title {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-primary);
+  margin-bottom: 5px;
+}
+
+.layer-metric-value {
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--text-primary);
+  margin-bottom: 5px;
+}
+
+.layer-metric-subtitle {
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+/* Settings Styles */
+.settings-header {
+  margin-bottom: 20px;
+}
+
+.settings-header h2 {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 5px;
+}
+
+.settings-header p {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.settings-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.settings-nav-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: var(--text-secondary);
+}
+
+.settings-nav-item:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+  color: var(--text-primary);
+}
+
+.settings-nav-item.active {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.settings-nav-item i {
+  font-size: 18px;
+}
+
+.settings-section {
+  margin-bottom: 30px;
+}
+
+.settings-section h3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-row {
+  display: flex;
+  gap: 15px;
+}
+
+.form-field {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.form-field.full-width {
+  width: 100%;
+}
+
+.form-field label {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.form-input, .form-select, .form-textarea {
+  padding: 10px;
+  border-radius: 6px;
+  background-color: var(--card-bg-secondary);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.form-input:focus, .form-select:focus, .form-textarea:focus {
+  outline: none;
+  border-color: var(--chart-blue);
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.form-checkbox {
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  accent-color: var(--chart-blue);
+}
+
+.form-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.theme-options {
+  display: flex;
+  gap: 15px;
+}
+
+.theme-option {
+  flex: 1;
+}
+
+.theme-option input[type="radio"] {
+  display: none;
+}
+
+.theme-label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.theme-preview {
+  width: 100%;
+  height: 80px;
+  border-radius: 8px;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.light-preview {
+  background: linear-gradient(to bottom, #e0e7ff, #c7d2fe);
+}
+
+.dark-preview {
+  background: linear-gradient(to bottom, #4a1d96, #312e81);
+}
+
+.system-preview {
+  background: linear-gradient(to right, #4a1d96 50%, #e0e7ff 50%);
+}
+
+input[type="radio"]:checked + .theme-label .theme-preview {
+  border-color: var(--chart-blue);
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+}
+
+/* Additional color */
+.green-bg {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.3), rgba(16, 185, 129, 0.1));
+}
+
+.green {
+  background-color: #10b981;
+}
+
+/* Responsive adjustments for all pages */
+@media (max-width: 768px) {
+  .form-row {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .theme-options {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .funnel-bar {
+    padding: 0 10px;
+  }
+  
+  .funnel-label, .funnel-value {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .kpi-card {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .transaction-item {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .layer-metric {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .settings-nav-item span {
+    display: none;
+  }
+  
+  .settings-nav {
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  
+  .settings-nav-item {
+    padding: 10px;
+  }
+}
+
+/* Mobile Responsive Enhancements for All Pages */
+
+/* Add this file to your project and include it in all HTML files */
+/* Or add these styles to your existing styles.css file */
+
+/* General Mobile Responsiveness */
+@media (max-width: 992px) {
+    /* Improve grid layouts on tablets */
+    .grid {
+      gap: 15px;
+    }
+    
+    /* Ensure charts have appropriate height on tablets */
+    .chart-container {
+      height: 200px !important;
+    }
+    
+    /* Adjust card padding for better space usage */
+    .card {
+      padding: 12px;
+    }
+    
+    /* Make sure legends don't overflow */
+    .chart-legend {
+      flex-wrap: wrap;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    /* Stack all grid columns on mobile */
+    .grid-col, 
+    .grid-col.span-2, 
+    .grid-col.span-3 {
+      width: 100%;
+    }
+    
+    /* Reduce chart heights for better mobile viewing */
+    .chart-container {
+      height: 180px !important;
+    }
+    
+    /* Adjust card padding further */
+    .card {
+      padding: 10px;
+    }
+    
+    /* Make chart headers more compact */
+    .chart-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
+    }
+    
+    /* Ensure progress bars are visible */
+    .progress-bar-container {
+      height: 10px;
+    }
+    
+    /* Adjust KPI cards for better mobile display */
+    .kpi-card {
+      padding: 10px;
+    }
+    
+    .kpi-value {
+      font-size: 20px;
+    }
+    
+    /* Make transaction items more compact */
+    .transaction-item {
+      padding: 8px;
+    }
+    
+    /* Adjust funnel for mobile */
+    .funnel-bar {
+      height: 35px;
+    }
+    
+    /* Make layer interactions more compact */
+    .layer-interaction-item {
+      margin-bottom: 10px;
+    }
+    
+    /* Adjust settings form for mobile */
+    .settings-form {
+      padding: 0;
+    }
+    
+    .form-actions {
+      flex-direction: column;
+      width: 100%;
+    }
+    
+    .form-actions button {
+      width: 100%;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    /* Extra small screens */
+    .dashboard {
+      padding: 5px;
+    }
+    
+    /* Make all grid items stack */
+    .grid {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    
+    /* Further reduce chart heights */
+    .chart-container {
+      height: 160px !important;
+    }
+    
+    /* Make card titles smaller */
+    .chart-title {
+      font-size: 12px;
+    }
+    
+    /* Adjust progress circles for mobile */
+    .progress-circles-container {
+      flex-wrap: wrap;
+    }
+    
+    .progress-circle-item {
+      margin: 5px;
+    }
+    
+    /* Make stats grid single column */
+    .stats-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    /* Adjust transaction items for very small screens */
+    .transactions-list {
+      gap: 10px;
+    }
+    
+    .transaction-icon {
+      width: 32px;
+      height: 32px;
+    }
+    
+    .transaction-title {
+      font-size: 12px;
+    }
+    
+    .transaction-date {
+      font-size: 10px;
+    }
+    
+    .transaction-amount {
+      font-size: 14px;
+    }
+    
+    /* Make funnel more compact */
+    .funnel-container {
+      gap: 5px;
+    }
+    
+    .funnel-bar {
+      height: 30px;
+      padding: 0 8px;
+    }
+    
+    .funnel-label, .funnel-value {
+      font-size: 10px;
+    }
+    
+    /* Adjust trend indicators */
+    .trend-indicators {
+      gap: 10px;
+    }
+    
+    .trend-indicator-title, .trend-indicator-value {
+      font-size: 12px;
+    }
+    
+    /* Make layer metrics more compact */
+    .layer-metrics {
+      gap: 10px;
+    }
+    
+    .layer-metric-icon {
+      width: 32px;
+      height: 32px;
+    }
+    
+    /* Adjust settings navigation for very small screens */
+    .settings-nav {
+      justify-content: center;
+    }
+    
+    .settings-nav-item {
+      padding: 8px;
+    }
+    
+    .settings-nav-item i {
+      font-size: 16px;
+    }
+    
+    /* Make form elements more touch-friendly */
+    .form-input, .form-select, .form-textarea {
+      padding: 12px;
+      font-size: 16px; /* Prevents iOS zoom on focus */
+    }
+    
+    .checkbox-label {
+      padding: 8px 0;
+    }
+    
+    .form-checkbox {
+      width: 20px;
+      height: 20px;
+    }
+  }
+  
+  /* Page-specific mobile adjustments */
+  
+  /* Finance page */
+  @media (max-width: 768px) {
+    .transactions-list {
+      max-height: 300px;
+      overflow-y: auto;
+    }
+  }
+  
+  /* Analytics page */
+  @media (max-width: 768px) {
+    .funnel-container {
+      margin-top: 10px;
+    }
+  }
+  
+  /* Statistics page */
+  @media (max-width: 480px) {
+    .stats-card {
+      padding: 10px;
+    }
+    
+    .stats-value {
+      font-size: 18px;
+    }
+  }
+  
+  /* Trends page */
+  @media (max-width: 768px) {
+    .trend-indicator-bar {
+      height: 10px;
+    }
+  }
+  
+  /* Layers page */
+  @media (max-width: 768px) {
+    .layer-interaction-bar {
+      height: 10px;
+    }
+  }
+  
+  /* Settings page */
+  @media (max-width: 768px) {
+    .settings-header h2 {
+      font-size: 18px;
+    }
+    
+    .settings-section h3 {
+      font-size: 14px;
+    }
+    
+    .theme-preview {
+      height: 60px;
+    }
+  }
+  
+  /* Fix for chart responsiveness */
+  canvas {
+    max-width: 100%;
+  }

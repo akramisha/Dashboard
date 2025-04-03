@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - Layers</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styless.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+</head>
+<body>
+  <div class="dashboard">
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+    
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <div class="logo">
+          <div class="logo-icon">L</div>
+          <span class="logo-text">LOGO</span>
+        </div>
+        <button class="close-sidebar-btn" id="closeSidebarBtn">
+          <i data-lucide="x"></i>
+        </button>
+      </div>
+      
+      <nav class="sidebar-nav">
+        <ul>
+          <li><a href="index.html"><i data-lucide="home"></i><span>Home</span></a></li>
+          <li><a href="finance.html"><i data-lucide="dollar-sign"></i><span>Finance</span></a></li>
+          <li><a href="statistics.html"><i data-lucide="bar-chart-2"></i><span>Statistics</span></a></li>
+          <li><a href="analytics.html"><i data-lucide="pie-chart"></i><span>Analytics</span></a></li>
+          <li><a href="trends.html"><i data-lucide="trending-up"></i><span>Trends</span></a></li>
+          <li><a href="layers.html" id="nav-layers"><i data-lucide="layers"></i><span>Layers</span></a></li>
+          <li><a href="settings.html"><i data-lucide="settings"></i><span>Settings</span></a></li>
+        </ul>
+      </nav>
+      
+      <div class="sidebar-footer animate-item">
+        <div class="progress-circle-container">
+          <svg class="progress-circle" width="120" height="120" viewBox="0 0 120 120">
+            <circle class="progress-background" cx="60" cy="60" r="54" stroke-width="12"></circle>
+            <circle class="progress-bar" cx="60" cy="60" r="54" stroke-width="12" stroke-dasharray="339.292" stroke-dashoffset="339.292"></circle>
+          </svg>
+          <div class="progress-text">
+            <span class="percentage">72%</span>
+            <span class="label">COMPLETION</span>
+          </div>
+        </div>
+        <div class="footer-text">LAYER ANALYSIS</div>
+      </div>
+    </aside>
+    
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Header -->
+      <header class="header">
+        <div class="header-left">
+          <button class="menu-button" id="menuButton"><i data-lucide="menu"></i></button>
+          <span class="header-text">Layers Dashboard</span>
+        </div>
+        
+        <div class="header-right">
+          <button class="button button-primary">Export</button>
+          <button class="button button-outline">Filter <i data-lucide="chevron-down"></i></button>
+          <button class="icon-button"><i data-lucide="bell"></i></button>
+          <div class="user-profile">
+            <div class="avatar">
+              <i data-lucide="user"></i>
+            </div>
+            <span class="user-name">User Name</span>
+          </div>
+        </div>
+      </header>
+      
+      <!-- Dashboard Content -->
+      <div class="dashboard-content">
+        
+
+        
+        <!-- Layers Content -->
+        <div class="grid">
+          <!-- Top Row -->
+          <div class="grid-col span-3">
+            <div class="card animate-on-scroll">
+              <div class="chart-header">
+                <span class="chart-title">DATA LAYERS OVERVIEW</span>
+                <div class="chart-legend">
+                  <div class="legend-item">
+                    <div class="legend-color" style="background-color: var(--chart-pink);"></div>
+                    <span>Layer 1</span>
+                  </div>
+                  <div class="legend-item">
+                    <div class="legend-color" style="background-color: var(--chart-blue);"></div>
+                    <span>Layer 2</span>
+                  </div>
+                  <div class="legend-item">
+                    <div class="legend-color" style="background-color: var(--chart-purple);"></div>
+                    <span>Layer 3</span>
+                  </div>
+                </div>
+              </div>
+              <div class="chart-container" style="height: 250px;">
+                <canvas id="layersOverviewChart"></canvas>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Middle Row -->
+          <div class="grid-col">
+            <div class="card animate-on-scroll">
+              <div class="chart-header">
+                <span class="chart-title">LAYER DISTRIBUTION</span>
+              </div>
+              <div class="chart-container">
+                <canvas id="layerDistributionChart"></canvas>
+              </div>
+            </div>
+          </div>
+          
+          <div class="grid-col span-2">
+            <div class="card animate-on-scroll">
+              <div class="chart-header">
+                <span class="chart-title">LAYER INTERACTIONS</span>
+              </div>
+              <div class="layer-interactions">
+                <div class="layer-interaction-item">
+                  <div class="layer-interaction-header">
+                    <div class="layer-interaction-title">Layer 1 → Layer 2</div>
+                    <div class="layer-interaction-value">78%</div>
+                  </div>
+                  <div class="layer-interaction-bar">
+                    <div class="layer-interaction-fill" style="width: 78%; background-color: var(--chart-pink);"></div>
+                  </div>
+                </div>
+                
+                <div class="layer-interaction-item">
+                  <div class="layer-interaction-header">
+                    <div class="layer-interaction-title">Layer 2 → Layer 3</div>
+                    <div class="layer-interaction-value">65%</div>
+                  </div>
+                  <div class="layer-interaction-bar">
+                    <div class="layer-interaction-fill" style="width: 65%; background-color: var(--chart-blue);"></div>
+                  </div>
+                </div>
+                
+                <div class="layer-interaction-item">
+                  <div class="layer-interaction-header">
+                    <div class="layer-interaction-title">Layer 3 → Layer 4</div>
+                    <div class="layer-interaction-value">42%</div>
+                  </div>
+                  <div class="layer-interaction-bar">
+                    <div class="layer-interaction-fill" style="width: 42%; background-color: var(--chart-purple);"></div>
+                  </div>
+                </div>
+                
+                <div class="layer-interaction-item">
+                  <div class="layer-interaction-header">
+                    <div class="layer-interaction-title">Layer 1 → Layer 3</div>
+                    <div class="layer-interaction-value">35%</div>
+                  </div>
+                  <div class="layer-interaction-bar">
+                    <div class="layer-interaction-fill" style="width: 35%; background-color: #10b981;"></div>
+                  </div>
+                </div>
+                
+                <div class="layer-interaction-item">
+                  <div class="layer-interaction-header">
+                    <div class="layer-interaction-title">Layer 2 → Layer 4</div>
+                    <div class="layer-interaction-value">28%</div>
+                  </div>
+                  <div class="layer-interaction-bar">
+                    <div class="layer-interaction-fill" style="width: 28%; background-color: #f59e0b;"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Bottom Row -->
+          <div class="grid-col span-2">
+            <div class="card animate-on-scroll">
+              <div class="chart-header">
+                <span class="chart-title">LAYER COMPOSITION</span>
+              </div>
+              <div class="chart-container">
+                <canvas id="layerCompositionChart"></canvas>
+              </div>
+            </div>
+          </div>
+          
+          <div class="grid-col">
+            <div class="card animate-on-scroll">
+              <div class="chart-header">
+                <span class="chart-title">LAYER METRICS</span>
+              </div>
+              <div class="layer-metrics">
+                <div class="layer-metric">
+                  <div class="layer-metric-icon pink-bg">
+                    <i data-lucide="layers"></i>
+                  </div>
+                  <div class="layer-metric-content">
+                    <div class="layer-metric-title">Layer 1</div>
+                    <div class="layer-metric-value">85%</div>
+                    <div class="layer-metric-subtitle">Efficiency</div>
+                  </div>
+                </div>
+                
+                <div class="layer-metric">
+                  <div class="layer-metric-icon blue-bg">
+                    <i data-lucide="layers"></i>
+                  </div>
+                  <div class="layer-metric-content">
+                    <div class="layer-metric-title">Layer 2</div>
+                    <div class="layer-metric-value">72%</div>
+                    <div class="layer-metric-subtitle">Efficiency</div>
+                  </div>
+                </div>
+                
+                <div class="layer-metric">
+                  <div class="layer-metric-icon purple-bg">
+                    <i data-lucide="layers"></i>
+                  </div>
+                  <div class="layer-metric-content">
+                    <div class="layer-metric-title">Layer 3</div>
+                    <div class="layer-metric-value">63%</div>
+                    <div class="layer-metric-subtitle">Efficiency</div>
+                  </div>
+                </div>
+                
+                <div class="layer-metric">
+                  <div class="layer-metric-icon green-bg">
+                    <i data-lucide="layers"></i>
+                  </div>
+                  <div class="layer-metric-content">
+                    <div class="layer-metric-title">Layer 4</div>
+                    <div class="layer-metric-value">48%</div>
+                    <div class="layer-metric-subtitle">Efficiency</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  
+  <script src="script.js"></script>
+  <script>
+    // Initialize Lucide icons
+    document.addEventListener('DOMContentLoaded', function() {
+      lucide.createIcons();
+      
+      // Highlight current page in navigation
+      document.getElementById('nav-layers').classList.add('active');
+      
+      // Initialize layers-specific charts
+      initLayersCharts();
+    });
+    
+    function initLayersCharts() {
+      // Layers Overview Chart
+      const overviewCtx = document.getElementById('layersOverviewChart').getContext('2d');
+      const categories = ['Category A', 'Category B', 'Category C', 'Category D', 'Category E', 'Category F'];
+      
+      new Chart(overviewCtx, {
+        type: 'line',
+        data: {
+          labels: categories,
+          datasets: [
+            {
+              label: 'Layer 1',
+              data: [85, 72, 78, 91, 63, 82],
+              borderColor: '#f43f5e',
+              backgroundColor: 'rgba(244, 63, 94, 0.1)',
+              tension: 0.4,
+              fill: true
+            },
+            {
+              label: 'Layer 2',
+              data: [65, 58, 62, 75, 52, 68],
+              borderColor: '#3b82f6',
+              backgroundColor: 'rgba(59, 130, 246, 0.1)',
+              tension: 0.4,
+              fill: true
+            },
+            {
+              label: 'Layer 3',
+              data: [45, 42, 48, 55, 38, 50],
+              borderColor: '#a855f7',
+              backgroundColor: 'rgba(168, 85, 247, 0.1)',
+              tension: 0.4,
+              fill: true
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          scales: {
+            y: {
+              beginAtZero: true,
+              grid: {
+                color: 'rgba(255, 255, 255, 0.05)'
+              }
+            },
+            x: {
+              grid: {
+                display: false
+              }
+            }
+          }
+        }
+      });
+      
+      // Layer Distribution Chart
+      const distributionCtx = document.getElementById('layerDistributionChart').getContext('2d');
+      
+      new Chart(distributionCtx, {
+        type: 'pie',
+        data: {
+          labels: ['Layer 1', 'Layer 2', 'Layer 3', 'Layer 4'],
+          datasets: [{
+            data: [40, 30, 20, 10],
+            backgroundColor: [
+              '#f43f5e',
+              '#3b82f6',
+              '#a855f7',
+              '#10b981'
+            ],
+            borderWidth: 0
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              position: 'bottom',
+              labels: {
+                padding: 15,
+                boxWidth: 10
+              }
+            }
+          }
+        }
+      });
+      
+      // Layer Composition Chart
+      const compositionCtx = document.getElementById('layerCompositionChart').getContext('2d');
+      
+      new Chart(compositionCtx, {
+        type: 'bar',
+        data: {
+          labels: ['Component A', 'Component B', 'Component C', 'Component D', 'Component E'],
+          datasets: [
+            {
+              label: 'Layer 1',
+              data: [30, 25, 15, 20, 10],
+              backgroundColor: '#f43f5e80',
+              borderColor: '#f43f5e',
+              borderWidth: 1
+            },
+            {
+              label: 'Layer 2',
+              data: [20, 30, 25, 15, 10],
+              backgroundColor: '#3b82f680',
+              borderColor: '#3b82f6',
+              borderWidth: 1
+            },
+            {
+              label: 'Layer 3',
+              data: [15, 20, 30, 25, 10],
+              backgroundColor: '#a855f780',
+              borderColor: '#a855f7',
+              borderWidth: 1
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          scales: {
+            x: {
+              stacked: true,
+              grid: {
+                display: false
+              }
+            },
+            y: {
+              stacked: true,
+              grid: {
+                color: 'rgba(255, 255, 255, 0.05)'
+              }
+            }
+          }
+        }
+      });
+    }
+  </script>
+   <script src="script.js"></script>
+   <!-- Add the mobile responsive JS -->
+   <script src="mobile-responsive.js"></script>
+   <script>
+     // Initialize Lucide icons
+     document.addEventListener('DOMContentLoaded', function() {
+       lucide.createIcons();
+       
+       // Highlight current page in navigation
+       document.getElementById('nav-finance').classList.add('active');
+       
+       // Initialize finance-specific charts
+       initFinanceCharts();
+     });
+     
+     // Finance charts initialization remains the same
+   </script>
+</body>
+</html>

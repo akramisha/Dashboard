@@ -1,0 +1,1122 @@
+/* Default light theme */
+body {
+    background-color: white;
+    color: black;
+  }
+  
+  /* Dark theme styles */
+  body.dark-theme {
+    background-color: #121212;
+    color: white;
+  }
+  
+/* CSS Variables for Theming */
+:root {
+    /* Light Theme Colors */
+    --bg-gradient-light: linear-gradient(to bottom, #e0e7ff, #c7d2fe, #e0e7ff);
+    --sidebar-bg-light: #f1f5f9;
+    --card-bg-light: #ffffff;
+    --card-bg-secondary-light: #f8fafc;
+    --text-primary-light: #1e293b;
+    --text-secondary-light: #64748b;
+    --border-color-light: #e2e8f0;
+    --chart-bg-light: rgba(241, 245, 249, 0.5);
+    
+    /* Dark Theme Colors */
+    --bg-gradient-dark: linear-gradient(to bottom, #4a1d96, #312e81, #4a1d96);
+    --sidebar-bg-dark: #1e1b4b;
+    --card-bg-dark: #2d2a5a;
+    --card-bg-secondary-dark: #1e1b4b;
+    --text-primary-dark: #ffffff;
+    --text-secondary-dark: #94a3b8;
+    --border-color-dark: #4b5563;
+    --chart-bg-dark: rgba(30, 27, 75, 0.5);
+    
+    /* Chart Colors */
+    --chart-pink: #f43f5e;
+    --chart-blue: #3b82f6;
+    --chart-purple: #a855f7;
+    
+    /* Default to Light Theme */
+    --bg-gradient: var(--bg-gradient-light);
+    --sidebar-bg: var(--sidebar-bg-light);
+    --card-bg: var(--card-bg-light);
+    --card-bg-secondary: var(--card-bg-secondary-light);
+    --text-primary: var(--text-primary-light);
+    --text-secondary: var(--text-secondary-light);
+    --border-color: var(--border-color-light);
+    --chart-bg: var(--chart-bg-light);
+  }
+  
+  /* Dark Theme */
+  html[data-theme="dark"] {
+    --bg-gradient: var(--bg-gradient-dark);
+    --sidebar-bg: var(--sidebar-bg-dark);
+    --card-bg: var(--card-bg-dark);
+    --card-bg-secondary: var(--card-bg-secondary-dark);
+    --text-primary: var(--text-primary-dark);
+    --text-secondary: var(--text-secondary-dark);
+    --border-color: var(--border-color-dark);
+    --chart-bg: var(--chart-bg-dark);
+  }
+  
+  /* Base Styles */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background: var(--bg-gradient);
+    color: var(--text-primary);
+    min-height: 100vh;
+    transition: background 0.3s ease;
+  }
+  
+  /* Dashboard Layout */
+  .dashboard {
+    display: flex;
+    min-height: 100vh;
+    padding: 20px;
+  }
+  
+  /* Mobile Menu Overlay */
+  .mobile-menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 998;
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .mobile-menu-overlay.active {
+    display: block;
+    opacity: 1;
+  }
+  
+  /* Sidebar */
+  .sidebar {
+    width: 250px;
+    background-color: var(--sidebar-bg);
+    border-radius: 12px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    margin-right: 20px;
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+    z-index: 999;
+  }
+  
+  .sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .close-sidebar-btn {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    cursor: pointer;
+    font-size: 20px;
+  }
+  
+  .logo {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+  }
+  
+  .logo-icon {
+    width: 32px;
+    height: 32px;
+    background-color: #ec4899;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: white;
+    margin-right: 10px;
+  }
+  
+  .logo-text {
+    font-weight: bold;
+    color: var(--text-primary);
+    margin-right: 10px;
+  }
+  
+  .sidebar-nav {
+    flex: 1;
+  }
+  
+  .sidebar-nav ul {
+    list-style: none;
+    padding-left: 0; /* Ensure no default padding on the list */
+  }
+  
+  .sidebar-nav li {
+    margin-bottom: 8px;
+  }
+  
+  .sidebar-nav a {
+    display: flex;
+    align-items: center;
+    padding: 12px 16px; /* Adjust padding for more space */
+    color: var(--text-secondary);
+    text-decoration: none;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+  }
+  
+  .sidebar-nav a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--text-primary);
+  }
+  
+  .sidebar-nav i {
+    margin-right: 12px; /* Reduce space between icon and text */
+    font-size: 20px; /* Increase font size for icons */
+  }
+  
+  .sidebar-nav span {
+    font-size: 14px; /* Increase text size for better readability */
+    font-weight: 500;
+  }
+  
+ 
+  
+  .sidebar-footer {
+    margin-top: 20px;
+    background-color: var(--card-bg-secondary);
+    border-radius: 12px;
+    padding: 15px;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 1s ease;
+  }
+  
+  .sidebar-footer.animate {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .progress-circle-container {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 10px;
+  }
+  
+  .progress-circle {
+    transform: rotate(-90deg);
+  }
+  
+  .progress-background {
+    fill: none;
+    stroke: rgba(255, 255, 255, 0.1);
+  }
+  
+  .progress-bar {
+    fill: none;
+    stroke: var(--chart-purple);
+    stroke-linecap: round;
+    transition: stroke-dashoffset 1.5s ease-in-out;
+  }
+  
+  .progress-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+  
+  .percentage {
+    display: block;
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--text-primary);
+  }
+  
+  .label {
+    display: block;
+    font-size: 10px;
+    color: var(--text-secondary);
+  }
+  
+  .footer-text {
+    font-size: 12px;
+    color: var(--text-secondary);
+  }
+  
+  /* Main Content */
+  .main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Header */
+  .header {
+    background-color: var(--sidebar-bg);
+    border-radius: 12px;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .header-left {
+    display: flex;
+    align-items: center;
+  }
+  
+  .menu-button {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 20px;
+    cursor: pointer;
+    margin-right: 15px;
+  }
+  
+  .header-text {
+    font-size: 12px;
+    color: var(--text-secondary);
+  }
+  
+  .header-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  
+  
+  html[data-theme="dark"] .theme-icon-light {
+    opacity: 1;
+    transform: translateY(0) rotate(0);
+  }
+  
+  html[data-theme="dark"] .theme-icon-dark {
+    opacity: 0;
+    transform: translateY(20px) rotate(90deg);
+  }
+  
+  html[data-theme="light"] .theme-icon-light {
+    opacity: 0;
+    transform: translateY(-20px) rotate(-90deg);
+  }
+  
+  html[data-theme="light"] .theme-icon-dark {
+    opacity: 1;
+    transform: translateY(0) rotate(0);
+  }
+  
+  
+  
+  .button {
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  
+  .button-primary {
+    background-color: #4f46e5;
+    color: white;
+    border: none;
+  }
+  
+  .button-outline {
+    background-color: transparent;
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+  }
+  
+  .icon-button {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 20px;
+    cursor: pointer;
+  }
+  
+  .user-profile {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .avatar {
+    width: 32px;
+    height: 32px;
+    background-color: #ec4899;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 16px; /* Adjust the font size if needed */
+  }
+  
+  .user-name {
+    color: var(--text-primary);
+    font-size: 14px;
+    display: block;
+  }
+  
+  .avatar-letter {
+    text-transform: uppercase; /* Makes the first letter uppercase */
+  }
+  
+  
+  /* Dashboard Content */
+  .dashboard-content {
+    background-color: var(--sidebar-bg);
+    border-radius: 12px;
+    padding: 20px;
+    flex: 1;
+    /* Remove the overflow: auto; that was causing the scrollbar */
+  }
+  
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  
+  .grid-col {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .span-2 {
+    grid-column: span 2;
+  }
+  
+  .span-3 {
+    grid-column: span 3;
+  }
+  
+  .grid-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    height: 100%;
+  }
+  
+  .grid-inner-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 20px;
+  }
+  
+  /* Cards */
+  .card {
+    background-color: var(--card-bg);
+    border-radius: 12px;
+    padding: 15px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.8s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  }
+  
+  .card.animate {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .card.small {
+    padding: 10px;
+    height: 100%;
+  }
+  
+  .pink-bg {
+    background: linear-gradient(135deg, rgba(236, 72, 153, 0.3), rgba(236, 72, 153, 0.1));
+  }
+  
+  .blue-bg {
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.3), rgba(59, 130, 246, 0.1));
+  }
+  
+  .purple-bg {
+    background: linear-gradient(135deg, rgba(168, 85, 247, 0.3), rgba(168, 85, 247, 0.1));
+  }
+  
+  /* Progress Bars */
+  .progress-container {
+    margin-bottom: 20px;
+  }
+  
+  .progress-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+  }
+  
+  .progress-label {
+    font-size: 12px;
+    color: var(--text-secondary);
+  }
+  
+  .progress-value {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-primary);
+  }
+  
+  .progress-bar-container {
+    height: 8px;
+    width: 100%;
+    background-color: var(--card-bg-secondary);
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .progress-bar-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: var(--card-bg-secondary);
+  }
+  
+  .progress-bar-fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0;
+    background-color: var(--bar-color);
+    border-radius: 4px;
+    transition: width 1.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+  
+  /* Charts */
+  .chart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+  
+  .chart-title {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-primary);
+  }
+  
+  .chart-subtitle {
+    font-size: 12px;
+    color: var(--text-secondary);
+  }
+  
+  .chart-legend {
+    display: flex;
+    gap: 15px;
+  }
+  
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  
+  .legend-color {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+  }
+  
+  .legend-item span {
+    font-size: 12px;
+    color: var(--text-secondary);
+  }
+  
+  .chart-container {
+    height: 150px;
+    width: 100%;
+    position: relative;
+  }
+  
+  /* Numbered Cards */
+  .card-number {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: var(--text-primary);
+  }
+  
+  .card-text {
+    font-size: 10px;
+    color: var(--text-secondary);
+  }
+  
+  .pink .card-number {
+    color: var(--chart-pink);
+  }
+  
+  .blue .card-number {
+    color: var(--chart-blue);
+  }
+  
+  .purple .card-number {
+    color: var(--chart-purple);
+  }
+  
+  /* Small Progress Circles */
+  .progress-circle-small-container {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    margin: 0 auto;
+  }
+  
+  .progress-circle-small {
+    transform: rotate(-90deg);
+  }
+  
+  .pink-stroke {
+    stroke: var(--chart-pink);
+  }
+  
+  .blue-stroke {
+    stroke: var(--chart-blue);
+  }
+  
+  .purple-stroke {
+    stroke: var(--chart-purple);
+  }
+  
+  .progress-text-small {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 14px;
+    font-weight: bold;
+    color: var(--text-primary);
+  }
+  
+  /* Stat Cards */
+  .stat-card {
+    text-align: center;
+  }
+  
+  .stat-value {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: var(--text-primary);
+  }
+  
+  .stat-label {
+    font-size: 10px;
+    color: var(--text-secondary);
+  }
+  
+  /* Stat List */
+  .stat-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .stat-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .stat-item-content {
+    flex: 1;
+  }
+  
+  .stat-item-label {
+    font-size: 12px;
+    color: var(--text-secondary);
+    margin-bottom: 5px;
+  }
+  
+  .stat-item-value {
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--text-primary);
+  }
+  
+  .stat-item-indicator {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin-left: 10px;
+  }
+  
+  .blue {
+    background-color: var(--chart-blue);
+  }
+  
+  .pink {
+    background-color: var(--chart-pink);
+  }
+  
+  .purple {
+    background-color: var(--chart-purple);
+  }
+  
+  /* Progress Circles Container */
+  .progress-circles-container {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px 0;
+    align-items: center;
+  }
+  
+  .progress-circle-item {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 15px;
+  }
+  
+  /* Create specific styles for the larger progress circles */
+  .progress-circles-container .progress-circle-small-container {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 15px;
+  }
+  
+  .progress-circles-container .progress-text-small {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--text-primary);
+  }
+  
+  .progress-circles-container .progress-label {
+    font-size: 12px;
+    color: var(--text-secondary);
+    margin-top: 5px;
+    text-align: center;
+    width: 100%;
+  }
+  
+  /* Animation Item */
+  .animate-item {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+  
+  .animate-item.animate {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  /* Scroll Animation */
+  .animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+  
+  .animate-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 1200px) {
+    .grid {
+      grid-template-columns: 1fr 1fr;
+    }
+    
+    .span-3 {
+      grid-column: span 2;
+    }
+  }
+  
+  @media (max-width: 992px) {
+    .dashboard {
+      padding: 10px;
+    }
+    
+    .sidebar {
+      position: fixed;
+      left: -280px;
+      top: 0;
+      bottom: 0;
+      height: 100vh;
+      margin-right: 0;
+      border-radius: 0;
+      border-top-right-radius: 12px;
+      border-bottom-right-radius: 12px;
+      transition: left 0.3s ease;
+      overflow-y: auto;
+    }
+    
+    .sidebar.active {
+      left: 0;
+    }
+    
+    .close-sidebar-btn {
+      display: block;
+    }
+    
+    .main-content {
+      width: 100%;
+    }
+    
+    .user-name {
+      display: none;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .span-2, .span-3 {
+      grid-column: span 1;
+    }
+    
+    .header {
+      flex-direction: column;
+      gap: 15px;
+      align-items: flex-start;
+    }
+    
+    .header-right {
+      width: 100%;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    
+    .button {
+      padding: 6px 12px;
+      font-size: 10px;
+    }
+    
+    .grid-inner-row {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .dashboard {
+      padding: 5px;
+    }
+    
+    .header-right {
+      gap: 5px;
+    }
+    
+    .button-outline {
+      display: none;
+    }
+  }
+
+
+  /* Add these mobile responsive enhancements to your existing styles.css file */
+
+/* Mobile Responsive Enhancements for All Pages */
+@media (max-width: 992px) {
+    /* Improve grid layouts on tablets */
+    .grid {
+      gap: 15px;
+    }
+    
+    /* Ensure charts have appropriate height on tablets */
+    .chart-container {
+      height: 200px !important;
+    }
+    
+    /* Adjust card padding for better space usage */
+    .card {
+      padding: 12px;
+    }
+    
+    /* Make sure legends don't overflow */
+    .chart-legend {
+      flex-wrap: wrap;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    /* Stack all grid columns on mobile */
+    .grid-col, 
+    .grid-col.span-2, 
+    .grid-col.span-3 {
+      width: 100%;
+    }
+    
+    /* Reduce chart heights for better mobile viewing */
+    .chart-container {
+      height: 180px !important;
+    }
+    
+    /* Adjust card padding further */
+    .card {
+      padding: 10px;
+    }
+    
+    /* Make chart headers more compact */
+    .chart-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
+    }
+    
+    /* Ensure progress bars are visible */
+    .progress-bar-container {
+      height: 10px;
+    }
+    
+    /* Adjust KPI cards for better mobile display */
+    .kpi-card {
+      padding: 10px;
+    }
+    
+    .kpi-value {
+      font-size: 20px;
+    }
+    
+    /* Make transaction items more compact */
+    .transaction-item {
+      padding: 8px;
+    }
+    
+    /* Adjust funnel for mobile */
+    .funnel-bar {
+      height: 35px;
+    }
+    
+    /* Make layer interactions more compact */
+    .layer-interaction-item {
+      margin-bottom: 10px;
+    }
+    
+    /* Adjust settings form for mobile */
+    .settings-form {
+      padding: 0;
+    }
+    
+    .form-actions {
+      flex-direction: column;
+      width: 100%;
+    }
+    
+    .form-actions button {
+      width: 100%;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    /* Extra small screens */
+    .dashboard {
+      padding: 5px;
+    }
+    
+    /* Make all grid items stack */
+    .grid {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    
+    /* Further reduce chart heights */
+    .chart-container {
+      height: 160px !important;
+    }
+    
+    /* Make card titles smaller */
+    .chart-title {
+      font-size: 12px;
+    }
+    
+    /* Adjust progress circles for mobile */
+    .progress-circles-container {
+      flex-wrap: wrap;
+    }
+    
+    .progress-circle-item {
+      margin: 5px;
+    }
+    
+    /* Make stats grid single column */
+    .stats-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    /* Adjust transaction items for very small screens */
+    .transactions-list {
+      gap: 10px;
+    }
+    
+    .transaction-icon {
+      width: 32px;
+      height: 32px;
+    }
+    
+    .transaction-title {
+      font-size: 12px;
+    }
+    
+    .transaction-date {
+      font-size: 10px;
+    }
+    
+    .transaction-amount {
+      font-size: 14px;
+    }
+    
+    /* Make funnel more compact */
+    .funnel-container {
+      gap: 5px;
+    }
+    
+    .funnel-bar {
+      height: 30px;
+      padding: 0 8px;
+    }
+    
+    .funnel-label, .funnel-value {
+      font-size: 10px;
+    }
+    
+    /* Adjust trend indicators */
+    .trend-indicators {
+      gap: 10px;
+    }
+    
+    .trend-indicator-title, .trend-indicator-value {
+      font-size: 12px;
+    }
+    
+    /* Make layer metrics more compact */
+    .layer-metrics {
+      gap: 10px;
+    }
+    
+    .layer-metric-icon {
+      width: 32px;
+      height: 32px;
+    }
+    
+    /* Adjust settings navigation for very small screens */
+    .settings-nav {
+      justify-content: center;
+    }
+    
+    .settings-nav-item {
+      padding: 8px;
+    }
+    
+    .settings-nav-item i {
+      font-size: 16px;
+    }
+    
+    /* Make form elements more touch-friendly */
+    .form-input, .form-select, .form-textarea {
+      padding: 12px;
+      font-size: 16px; /* Prevents iOS zoom on focus */
+    }
+    
+    .checkbox-label {
+      padding: 8px 0;
+    }
+    
+    .form-checkbox {
+      width: 20px;
+      height: 20px;
+    }
+  }
+  
+  /* Page-specific mobile adjustments */
+  
+  /* Finance page */
+  @media (max-width: 768px) {
+    .transactions-list {
+      max-height: 300px;
+      overflow-y: auto;
+    }
+  }
+  
+  /* Analytics page */
+  @media (max-width: 768px) {
+    .funnel-container {
+      margin-top: 10px;
+    }
+  }
+  
+  /* Statistics page */
+  @media (max-width: 480px) {
+    .stats-card {
+      padding: 10px;
+    }
+    
+    .stats-value {
+      font-size: 18px;
+    }
+  }
+  
+  /* Trends page */
+  @media (max-width: 768px) {
+    .trend-indicator-bar {
+      height: 10px;
+    }
+  }
+  
+  /* Layers page */
+  @media (max-width: 768px) {
+    .layer-interaction-bar {
+      height: 10px;
+    }
+  }
+  
+  /* Settings page */
+  @media (max-width: 768px) {
+    .settings-header h2 {
+      font-size: 18px;
+    }
+    
+    .settings-section h3 {
+      font-size: 14px;
+    }
+    
+    .theme-preview {
+      height: 60px;
+    }
+  }
+  
+  /* Fix for chart responsiveness */
+  canvas {
+    max-width: 100%;
+  }
